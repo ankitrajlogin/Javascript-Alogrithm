@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <button id="orange">orange</button>
+        <button id="green">Green</button>
+    </div>
+    
+</body>
+
+<script>
+
+    // document.getElementById('orange').onclick = 
+    // function(){
+    //     document.body.style.backgroundColor = 'orange' 
+    // }
+
+    // document.getElementById('green').onclick = 
+    // function(){
+    //     document.body.style.backgroundColor = 'green' 
+    // }
+
+
+
+
+
+    // what if 500 button ; 
+
+    // try to make click handler 
+
+    // function clickHandler(color){
+    //     document.body.style.backgroundColor = `${color}` ; 
+    // }
+    
+    // document.getElementById('orange').onclick = clickHandler('orange') ; 
+    // this code run clickHandler and background color get orange; 
+    
+    // we need a function that run onclick ; 
+    // it means onclick need a function that run when click handler work ; 
+    
+    
+    
+    
+    
+    // Hence 
+    
+    
+    function clickHandler(color){
+        
+        return function(){
+            document.body.style.backgroundColor = `${color}` ; 
+        }
+        // in this , when function return the function , it return color values also  ; 
+    }
+    
+    document.getElementById('orange').onclick = clickHandler('orange') ; 
+    document.getElementById('green').onclick = clickHandler('green') ; 
+    
+
+
+</script>
+</html>

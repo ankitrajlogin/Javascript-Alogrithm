@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    const User = {
+        _email : "anktit@gmail.com" , 
+        _password : "abc" , 
+
+        get email(){
+            return this._email.toUpperCase()
+        },
+        set email(value){
+            this.email = value 
+        }
+
+    }
+    // getter and setter is a properties , not a function ; 
+
+    
+
+    const tea = Object.create(User) ; 
+
+    console.log(tea.email) ;
+
+
+</script>
+</html>

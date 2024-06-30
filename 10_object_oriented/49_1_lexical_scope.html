@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexical Scoping Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .code {
+      background-color: #f0f0f0;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Understanding Lexical Scoping in JavaScript</h1>
+
+  <div class="code">
+    <h2>Example of Lexical Scoping</h2>
+    <pre>
+      <code>
+        function outerFunction() {
+          const outerVariable = 'I am from outer scope';
+
+          function innerFunction() {
+            console.log(outerVariable); // Accesses outerVariable from outerFunction's scope
+          }
+
+          innerFunction();
+        }
+
+        outerFunction();
+      </code>
+    </pre>
+  </div>
+
+  <h2>Explanation</h2>
+  <p>
+    Lexical scoping defines how variable names are resolved in nested functions. It determines the scope of a variable based solely on its position within the textual structure (lexicon) of the code.
+  </p>
+
+  <p>
+    When a variable is referenced within a function, JavaScript first looks for that variable in the immediate function scope. If it's not found there, it continues to look in the outer function scope, and so on, until it reaches the global scope.
+  </p>
+
+  <p>
+    Inner functions (functions defined within other functions) have access to variables declared in their outer (enclosing) function scope.
+  </p>
+
+  <h2>Benefits of Lexical Scoping</h2>
+  <ul>
+    <li>Encapsulation: It promotes encapsulation by allowing inner functions to access variables from their outer functions, while preventing external code from accessing those variables directly.</li>
+  </ul>
+
+  <script>
+    // JavaScript code can be placed here if needed
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Closure Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .code {
+      background-color: #f0f0f0;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Understanding Closures in JavaScript</h1>
+
+  <div class="code">
+    <h2>Example of Closure</h2>
+    <pre>
+      <code>
+        function createCounter() {
+          let count = 0;
+          return function() {
+            count++;
+            return count;
+          };
+        }
+
+        const counter = createCounter();
+        console.log(counter()); // 1
+        console.log(counter()); // 2
+        console.log(counter()); // 3
+      </code>
+    </pre>
+  </div>
+
+  <h2>Explanation</h2>
+  <p>
+    A closure in JavaScript allows a function to retain access to its lexical scope, even when the function is executed outside its original scope.
+  </p>
+
+  <p>
+    In the example:
+    <ul>
+      <li>`createCounter` defines a `count` variable locally and returns an inner function.</li>
+      <li>The inner function (`counter`) is called multiple times, each time incrementing and returning `count`.</li>
+      <li>Despite `createCounter` finishing execution, `counter` retains access to `count` due to closure, allowing it to remember the state between calls.</li>
+    </ul>
+  </p>
+
+  <script>
+    // Example 1 
+
+    function createCounter() {
+          let count = 0;
+          return function() {
+            count++;
+            return count;
+          };
+    }
+
+    const counter = createCounter();
+    console.log(counter()); // 1
+    console.log(counter()); // 2
+    console.log(counter()); // 3
+
+
+
+    // Example 2 
+  </script>
+</body>
+</html>

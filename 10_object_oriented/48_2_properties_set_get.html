@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    // this is function as well as object 
+
+    // defineProperty is a function properties of getter and setter ; 
+
+
+    function User(email , password){
+        this._email = email ; 
+        this._password = password ; 
+
+
+        Object.defineProperty(this , 'email' , {
+            get: function(){
+                return this._email.toUpperCase() ; 
+            } , 
+            set: function(value){
+                this._password = password ; 
+            }
+        })
+    }
+
+    const chai = new User("chai@chai.com" , "chai") 
+
+    console.log(chai.email) ; 
+</script>
+</html>

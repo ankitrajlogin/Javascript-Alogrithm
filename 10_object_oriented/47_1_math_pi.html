@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Properties of the Objects</h1>
+    
+    <h3>Question : Can we Can the value of Pi in javascript</h3>
+    <div class="container">
+        <div>
+            JavaScript's Math object is part of the standard built-in objects defined by ECMAScript. These properties are set up in a way that prevents accidental or intentional modification, which helps maintain consistency and avoids potential errors in calculations.
+
+Here's a brief explanation of property attributes in JavaScript:
+<ul>
+    <li>Writable: If false, the property cannot be changed</li>
+    <li>Configurable: If false, the property cannot be deleted or changed (except for the writable attribute).</li>
+    <li>Enumerable: If true, the property will be included in enumerations (like in for...in loops).</li>
+</ul>
+
+<div>Math.PI is defined with the following attributes:
+<ul>
+    <li>Writable: false</li>
+    <li>Configurable: false</li>
+    <li>Enumerable: false </li>
+</ul>
+</div>
+
+
+  
+        </div>
+
+        <pre><code>console.log(Math.PI); // 3.141592653589793
+
+Math.PI = 3.14;
+
+console.log(Math.PI); // Still 3.141592653589793</code></pre>
+        <button id="showReasonBtn">Why Can't We Overwrite?</button>
+        <div id="reason" class="hidden">
+            <p>The inability to overwrite <code>Math.PI</code> is due to its property attributes:</p>
+            <ul>
+                <li><strong>Writable:</strong> false</li>
+                <li><strong>Configurable:</strong> false</li>
+                <li><strong>Enumerable:</strong> false</li>
+            </ul>
+            <p>These settings ensure the integrity and reliability of mathematical constants within the language. You can see these attributes using <code>Object.getOwnPropertyDescriptor</code>:</p>
+            <pre><code>console.log(Object.getOwnPropertyDescriptor(Math, 'PI'));</code></pre>
+            <p>This will output:</p>
+            <pre><code>{
+  value: 3.141592653589793,
+  writable: false,
+  enumerable: false,
+  configurable: false
+}</code></pre>
+        </div>
+    </div>
+</body>
+
+<script>
+    const descripter = Object.getOwnPropertyDescriptor(Math , "PI") ; 
+
+    console.log(descripter)
+    // output : 
+    // value: 3.141592653589793,
+    // writable: false,
+    // enumerable: false,
+    // configurable: false
+
+
+    // can we make our own un-writable code ; 
+
+    const chai = {
+        name : 'ginger chai'  , 
+        price : 250 , 
+        isAvailable : true , 
+
+        chaivalue : function(){
+            console.log('bahut expensive')
+        }
+    }
+
+    // console.log(chai) ; 
+
+    console.log(Object.getOwnPropertyDescriptor(chai, "name")) ; 
+
+    Object.defineProperty(chai , 'name' , {
+        writable : false , 
+        enumerable : false 
+    })
+
+    console.log(chai.name) ;
+    chai.name = "ankit" ; 
+    
+    console.log(chai.name) ; // because it become writable = false ;
+
+
+
+    // name will not appear as name enumerable is disable ; 
+    for(let [key , value] of Object.entries(chai)){
+        console.log(`key is : ${key}, : ${value}`) ; 
+    }
+
+    
+</script>
+</html>

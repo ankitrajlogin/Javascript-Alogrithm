@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    class User{
+        constructor(username , email , password){
+            this.username = username ;
+            this.email = email ; 
+            this.password = password 
+        }
+
+        encryptPassword(){
+            return `${this.password}abc`
+        }
+
+        UpperCaseconvert(){
+            this.username = this.username.toUpperCase() ; 
+
+        }
+    }
+
+
+    const bhai = new User("ankit" , "ankit@gmi" , "123") ; 
+
+    console.log(bhai.encryptPassword()) ; 
+
+    console.log(bhai.username) ; 
+    bhai.UpperCaseconvert() ; 
+    console.log(bhai.username) ; 
+
+
+    // Behind the seeen. 
+    // What if , we don't have class synthatic sugar. 
+
+
+    function User2(username , email , password){
+        this.username = username ; 
+        this.email = email ; 
+        this.password = password
+    }
+
+    User2.prototype.encryptPassword = function(){
+        return `${this.password}abc`
+    }
+
+    User2.prototype.UpperCaseconvert = function(){
+        this.username = this.username.toUpperCase() ; 
+
+    }
+
+    const bhai2 = new User2("rahul" , "asdnk@gmial" , "23w3") ; 
+
+    console.log(bhai2.encryptPassword()) ; 
+
+    console.log(bhai2.username) ; 
+    bhai2.UpperCaseconvert() ; 
+    console.log(bhai2.username) ; 
+
+
+
+
+
+
+
+
+
+</script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>What is Call and this</h1>
+    <h3>for Window , this == window</h3>
+    <h3>But in node environment , this = {}</h3>
+
+
+    
+</body>
+<script>
+
+    // call 
+
+    function SetUsername(username){
+        // complex DB calls 
+        this.username = username 
+        console.log(`called ${username}`) ; 
+        console.log(this) ; 
+    }
+
+    function createUser(username , email , password){
+        // it will call but not set username value ; 
+        // when call it set value , but after execution , not hold it. 
+        // SetUsername(username) 
+
+
+        // for that to set and hold value ; 
+
+        // we passing first argument this. 
+        // so this used in SetUserName is for createUser ; 
+        SetUsername.call(this , username) ; 
+
+        this.email = email 
+        this.password = password ; 
+    }
+
+    const chai = new createUser("chai" , "anktir@gmail" , 234) ;
+
+    console.log(chai) ;
+
+</script>
+</html>

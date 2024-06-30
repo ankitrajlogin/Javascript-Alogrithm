@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bind</h1>
+    <div>
+        In JavaScript, bind is a method available on functions that allows you to create a new function with a specific this context and optionally predefine some arguments. This is particularly useful in situations where you need to ensure that a function is executed with a specific this value, regardless of how or where it is called.
+
+<h2>Key Points About bind:</h2>
+<h3>Binding this:
+</h3>
+bind sets the this value to the specified value for the new function created.
+<h3>Partial Application:</h3>
+
+bind can also predefine some arguments, creating a partially applied function. This means that some arguments are fixed when the new function is created, and only the remaining arguments need to be provided when the function is called.
+<h3>Creating a New Function:
+</h3>
+bind returns a new function and does not modify the original function.
+Syntax:
+    </div>
+
+
+<button>Click on me</button>
+    
+</body>
+
+<script>
+    class React{
+        constructor(){
+            this.library = "React" 
+            this.server = "http://localhost:300"
+
+            // requirement ;
+            // on button click , action occur ;
+
+            
+
+            // if we use this, this refer to the block where button click 
+
+            // document.querySelector('button')
+            // .addEventListener('click',this.handleClick) ; 
+
+
+            // to access react properties , we have to bind it ; 
+            document.querySelector('button')
+            .addEventListener('click',this.handleClick.bind(this)) ; 
+        }
+
+        handleClick(){
+            console.log("button clicked") ; 
+            console.log(this) ; 
+            console.log(this.server) ; 
+        }
+    }
+
+    const app = new React() ; 
+
+    // document.querySelector('button').addEventListener('click' , ()=>{
+    //     console.log('clicked') ; 
+    // })
+</script>
+
+</html>

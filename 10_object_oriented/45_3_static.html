@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Static</h1>
+    <div>What is static in JavaScript?
+        The static keyword in JavaScript is used to define static methods and properties for a class. These members are associated with the class itself rather than with any instance of the class. Static methods and properties are typically used for utility functions, constants, or factory methods that are relevant to the class but not to individual instances.</div>
+    
+</body>
+<script>
+    class MathUtils {
+        static pi = 3.14159;
+        static calculateCircumference(radius) {
+            return 2 * MathUtils.pi * radius;
+        }
+
+        static calculateArea(radius) {
+            return MathUtils.pi * radius * radius;
+        }
+    }
+
+  
+    console.log(MathUtils.pi); 
+    console.log(MathUtils.calculateCircumference(5));
+    console.log(MathUtils.calculateArea(5)); 
+
+  
+    const mathUtilsInstance = new MathUtils();
+
+    try {
+        console.log(mathUtilsInstance.calculateCircumference(5)); // Error: mathUtilsInstance.calculateCircumference is not a function
+    } catch (error) {
+        console.error(error.message); // Output: mathUtilsInstance.calculateCircumference is not a function
+    }
+
+
+    class User {
+        constructor(username) {
+            this.username = username;
+        }
+
+        logMe() {
+            console.log(`Username is ${this.username}`);
+        }
+        static createGuestUser() {
+            return new User('Guest');
+        }
+    }
+
+    const guestUser = User.createGuestUser();
+    guestUser.logMe(); 
+
+    const regularUser = new User('JohnDoe');
+    regularUser.logMe(); 
+
+    // Trying to call the static method on an instance (will result in an error)
+    try {
+        console.log(regularUser.createGuestUser()); // Error: regularUser.createGuestUser is not a function
+    } catch (error) {
+        console.error(error.message); // Output: regularUser.createGuestUser is not a function
+    }
+
+
+</script>
+</html>

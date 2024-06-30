@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    
+</body>
+    <script>
+
+        // object literals  ;
+
+        // const user = {
+        // username : "ankit" ,
+        // logincount : 10 , 
+        // singedIn : true , 
+
+        // getthisvalue(){
+        //     console.log(this) ; 
+        // } , 
+
+        // getUserDetails : function(){
+        //     console.log("this is user detial") ; 
+        // } , 
+
+        // getUserloginCount(){
+        //     console.log(this.logincount) ; 
+        // }
+        // }
+
+        // console.log(user.username) ; 
+        // console.log(user.getUserDetails)
+
+        // user.getUserDetails() ;
+        
+        // user.getUserloginCount() ;
+
+        // user.getthisvalue() ; 
+
+        // console.log(this) ; // this in global context which return windows ;  
+
+
+
+        // POINT 2 
+
+        // again if we want to make another user2.
+        // we have to repeat all .
+        // so we use constructor function 
+        //  new is a constructor function ; 
+
+
+        function Users(username, logincount, isloggedIn) {
+            this.username = username;
+            this.logincount = logincount;
+            this.isloggedIn = isloggedIn;
+
+            // greeting method ; 
+            // add this for function to identify this is Users function ; 
+            this.greeting = function(){
+                console.log(`welcome to our website ${this.username}`)
+            }
+
+            return this;
+        }
+        
+        const userOne = Users("ankit" , 12 , true) ; 
+        const userTwo = Users("anjani" , 22 , false) ; 
+
+        console.log(userOne.username) ; 
+        // it overwrite privious values ; 
+
+        // to overcome this , we use new keywordk 
+
+        const userthree = new Users("rahul" , 23 , false) ; 
+        const userfour = new Users("shyam" , 23 , false) ; 
+
+        console.log(userthree.username) ; 
+        console.log(userOne.username);
+
+        userfour.greeting() ; 
+
+        console.log(userfour.constructor) ; 
+        // this give function of Users . 
+
+
+
+
+    </script>
+</html>

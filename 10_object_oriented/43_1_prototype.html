@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>What is prototypes in javascript</h3>
+    <div>In JavaScript, the prototype is a mechanism by which objects inherit features from one another. It is a fundamental concept that underlies how inheritance and object property sharing work in JavaScript.</div>
+
+
+    <h1>Key Points about Prototypes</h1>
+<h3>Prototype Object:</h3>
+Every JavaScript object has a prototype object from which it inherits properties and methods. This prototype object is itself an object, and it can have its own prototype, forming a chain known as the prototype chain.
+
+<h3>__proto__ Property:</h3>
+The __proto__ property of an object points to its prototype. While __proto__ is not a standard property and its use is discouraged in favor of more standard methods, it is still widely supported and used for understanding and debugging.
+
+<h3>prototype Property:</h3>
+Every JavaScript function has a prototype property that is used when the function is used as a constructor with the new keyword. This prototype property is an object that becomes the prototype of instances created with that constructor.
+
+<h3>Inheritance: </h3> 
+When a property or method is accessed on an object, JavaScript first looks for it on the object itself. If it is not found, JavaScript looks up the prototype chain until it finds the property or reaches the end of the chain.
+
+
+    
+</body>
+
+<script>
+        // Constructor function
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Adding a method to the prototype
+    Person.prototype.greet = function() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    };
+
+    // Creating instances
+    const person1 = new Person('Alice', 30);
+    const person2 = new Person('Bob', 25);
+
+    // Calling the method
+    person1.greet(); // Output: Hello, my name is Alice and I am 30 years old.
+    person2.greet(); // Output: Hello, my name is Bob and I am 25 years old.
+
+    
+
+
+</script>
+</html>

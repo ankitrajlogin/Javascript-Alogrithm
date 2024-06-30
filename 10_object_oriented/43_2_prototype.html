@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>javascript is a prototype behavior.</h1>
+    <h1>every things in a javascript is a object</h1>
+    <h1>function is also a function but object also</h1>
+    <h3>function , array , string prototype is object whereas object prototype is null </h3>
+    <img src="image.png" alt="">
+
+
+    <h1>What is new keyword</h1>
+    <div>
+
+        Here's what happens behind the scenes when the new keyword
+        is used:
+        
+        A new object is created: The new keyword initiates the
+        creation of a new JavaScript object.
+        
+        A prototype is linked: The newly created object gets linked
+        to the prototype property of the constructor function. This
+        means that it has access to properties and methods defined
+        on the constructor's prototype.</div>
+        <br>
+        <div>The constructor is called: The constructor function is
+            called with the specified arguments and this is bound to
+            the newly created object. If no explicit return value is
+            specified from the constructor, JavaScript assumes this,
+            the newly created object, to be the intended return value.</div>
+            
+            
+            <br>
+        <div>The constructor is called: The constructor function is
+            called with the specified arguments and this is bound to
+            the newly created object. If no explicit return value is
+            specified from the constructor, JavaScript assumes this,
+            the newly created object, to be the intended return value.</div>
+
+
+    
+</body>
+    <script>
+        function multipleBy5(num){
+            this.num = num ; 
+            return num*5 
+        }
+
+        multipleBy5.power = 2 ; 
+
+        console.log(multipleBy5(4)) ; 
+        console.log(multipleBy5.power) ; 
+        console.log(multipleBy5.prototype) ; 
+        // array --> object ---> null 
+
+        function createUser(username , score){
+            this.username = username ; 
+            this.score = score ; 
+        }
+
+        createUser.prototype.increment = function(){
+            this.score++ ; 
+        }
+
+        createUser.prototype.printMe = function(){
+            console.log(`score is ${this.score}`) ; 
+        }
+
+        const chai = new createUser("chai" , 42) ; 
+        console.log(chai.score) ; 
+
+        chai.increment() ;
+        console.log(chai.score) ;  
+
+
+
+        // goal --> create a props for string such that it gives actual length ; 
+
+
+        let myName = "  ankit   "  ;
+
+        let myHeros = ["thor" , "spiderman"]
+
+        let heroPower = {
+            thor : "hammer" , 
+            spriderman : "sling" ,
+
+            getSpiderPower: function(){
+                console.log(`Spidy power is ${this.spiderman}`) ;
+            }
+        }
+
+        Object.prototype.ankit = function(){
+            console.log('ankit is present in all the object')
+        }
+
+        heroPower.ankit() ; 
+        myHeros.ankit() ;
+        myName.ankit() ; 
+
+        // as i declare properites in object so it use all it. 
+
+
+        String.prototype.trimmer = function(){
+            return this.trim() ; 
+        }
+
+        console.log(myName) ; 
+        console.log(myName.trimmer()) ;
+        
+        console.log(myName)
+        
+        
+        
+
+
+
+
+
+    </script>
+
+
+</html>

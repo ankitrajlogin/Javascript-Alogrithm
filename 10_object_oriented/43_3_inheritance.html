@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Inheritance</h1>
+
+    
+    
+</body>
+
+<script>
+
+
+    const User = {
+        name : 'ankit' , 
+        email : "ankitrajlogin@gmail.com"
+    }
+
+    
+    const Teacher = {
+        makeVideo : true   ,
+        value : "ankit"
+    }
+
+    const TeacherSupport = {
+        isAvailable : false 
+    }
+
+    const TASupport = {
+        makeAssignment : "JA makeAssignment" , 
+        fullTime : true  ,
+
+        // method 1 ; 
+        __proto__ : TeacherSupport 
+    }
+
+    // method 2 ; 
+    TeacherSupport.__proto__ = Teacher ;
+
+    console.log(TASupport) ; 
+
+    console.log(TASupport.fullTime) ; 
+    console.log(TASupport.isAvailable) ;
+
+    console.log(TASupport.makeVideo) ; 
+    console.log(TASupport.value) ; 
+
+
+    // method 3 : set prototype of 
+    // currently used ; 
+    Object.setPrototypeOf(Teacher , User) ; 
+
+    
+
+</script>
+</html>

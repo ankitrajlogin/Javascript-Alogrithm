@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ES6 -- everything after es6
+      -->
+
+      <h1>Inheritance</h1>
+
+
+    
+</body>
+
+<script>
+
+    class User{
+        constructor(username){
+            this.username = username ; 
+          
+        }
+
+        logMe(){
+            console.log(`UserNmae is ${this.username}`) ; 
+        }
+    }
+
+
+    class Teacher extends User{
+        constructor(username , email , password){
+            // instead of using call and this. 
+            super(username) ; 
+
+            this.email = email ; 
+            this.password = password ;
+        }
+
+        addCourse(){
+            console.log(`A new course was added by ${this.username}`) ; 
+        }
+    }
+
+    const anjaniuser = new Teacher("anjani" , "Ankit@gmail.com" , 23425) ; 
+
+    anjaniuser.addCourse() ;  
+
+    const ankituser = new User("ankit") ; 
+    // ankituser.addCourse() ; --> no access to addCourse ;
+    
+    anjaniuser.logMe() ; 
+
+    console.log(ankituser === anjaniuser) ; 
+    console.log(anjaniuser === Teacher) ; 
+
+    const rahuluser = new Teacher("rahul" , "rahul@gmail.com" , 234) ; 
+
+    console.log(anjaniuser === rahuluser) ; 
+    console.log(anjaniuser == rahuluser) ;
+
+    console.log(Teacher instanceof User) ;  // false
+    console.log(User instanceof Teacher) ; // false ; 
+    console.log(ankituser instanceof User) ; // true ; 
+    console.log(ankituser instanceof Teacher) ; //false ; 
+    console.log(anjaniuser instanceof User) ; // true ; 
+    console.log(anjaniuser instanceof Teacher) ; // true ; 
+
+
+
+</script>
+</html>
