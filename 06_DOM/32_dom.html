@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg-black{
+            background-color : #212121 ; 
+            color : #fff ; 
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1 class="heading" id="title">DOM learning</h1>
+        <p class="para" id="tit">Lorem ipsum dolor <span style="display:none">sit amet.</span></p>
+        <p class="para" id="tit">Lorem ipsum dolor <span style="display:none">sit amet.</span></p>
+        <p class="para" id="tit">Lorem ipsum dolor <span style="display:none">sit amet.</span></p>
+        <p class="para" id="tit">Lorem ipsum dolor <span style="display:none">sit amet.</span></p>
+        <p class="para" id="tit">Lorem ipsum dolor <span style="display:none">sit amet.</span></p>
+        <input type="password" class="type1password">
+    </div>
+
+    <ul>
+        <li class="list-item">dog</li>
+        <li class="list-item">cat</li>
+        <li class="list-item">bat</li>
+        <li class="list-item">mat</li>
+    </ul>
+
+
+    
+</body>
+<script>
+    let id = document.getElementById('title') ; 
+    console.log(id) ; 
+
+    console.log(document.getElementById('title').id) ; 
+    console.log(document.getElementById('title').className) ; 
+
+    // getting attributes 
+    console.log(document.getElementById('title').getAttribute('id')) ; 
+    console.log(document.getElementById('title').getAttribute('class')) ;
+    
+    // setting attributes 
+
+    console.log(document.getElementById('title').setAttribute('class' , 'test')) ;
+    // it will replace the class 
+    
+    console.log(document.getElementById('title').setAttribute('class' , 'test heading')) ;
+
+
+    id.style.color = 'red' ; 
+    id.style.backgroundColor = 'yellow' ; 
+
+    id.style.borderRadius = '5px' ; 
+
+
+
+
+
+    // getting contect from the id ;
+
+    title = document.getElementById('tit') ; 
+    console.log("getting content") 
+    
+    // it givs only visible content ; 
+    console.log(title.innerText) ; 
+
+
+    // it gives all textcontent inside it
+    console.log(title.textContent) ; 
+
+    // it gives all content with tags used inside it
+    console.log(title.innerHTML) ; 
+
+    // it gives all content with tages outside full it ; 
+    console.log(title.outerHTML) ; 
+
+    
+
+
+
+    // QuerySelector --> it give first required element 
+    // querySelectorAll gives collected of all required element  ; 
+
+    console.log(document.querySelector('#title')) ; 
+    console.log(document.querySelectorAll('#title')) ; 
+
+
+    console.log(document.querySelector('input[type="password"]')) ; 
+
+
+
+    let li = document.querySelectorAll('li') ; 
+
+    li.forEach(function(l){
+        l.style.backgroundColor = 'green' ;
+    })
+
+
+    console.log(li[0]) ; 
+
+
+
+
+    // classNames gives collection of nodes ; 
+
+     
+    item = document.getElementsByClassName('list-item') ; 
+    console.log(item) ;
+
+    // classNames doesn't have foreach prototypes 
+    // for using it , first convert it into array ; 
+
+    const convertedarray = Array.from(item) ;
+    
+    convertedarray.forEach(function(e){
+        e.style.color = 'orange' ; 
+    })
+
+
+
+
+</script>
+</html>

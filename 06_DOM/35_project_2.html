@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+    <style>
+        .navbar{
+            display: flex;
+            font-size: 30px;
+            font-weight: 800;
+            justify-content: center;
+            background-color: aquamarine;
+        }
+
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+        }
+
+        #results{
+            font-size : 20px ; 
+            padding : 5px ;
+            border-radius: 4px ;
+            padding : 5px ; 
+            margin : 5px ; 
+            
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        Project 2
+    </nav>
+
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <form>
+            <p><label>Height in CM: </label><input type="text"
+            id="height" /></p>
+            <p><label>Weight in KG: </label><input type="text"
+            id="weight" /></p>
+            <button>Calculate</button>
+            <div id="results"> </div>
+            <div id="weight-guide">
+                <h3>BMI Weight Guide</h3>
+                <p>Under Weight = Less than 18.6</p>
+                <p>Normal Range = 18.6 and 24.9</p>
+                <p>Overweight = Greater than 24.9</p>
+            </div>
+        </form>
+    </div>
+    
+</body>
+<script>
+
+    const form = document.querySelector('form')
+
+    form.addEventListener('submit' , function(e){
+        e.preventDefault() ;
+        
+        // it gives input values and then convert into integer
+        const height = parseInt(document.querySelector('#height').value) ; 
+        const weight = parseInt(document.querySelector('#weight').value) ; 
+
+        const results = document.querySelector('#results') ; 
+
+
+        if(height === '' || height < 0 || isNaN(height)){
+            results.innerHTML = 'please give a valid height' ;
+        }
+        else if(weight === '' || weight < 0 || isNaN(weight)){
+            results.innerHTML = 'please give a valid height' ;
+        }
+        else{
+           const bmi = (weight/((height*height)/10000)).toFixed(2) 
+           
+           // show result 
+           results.innerHTML = `<span>${bmi}</span>` ; 
+
+           console.log(bmi) ; 
+
+           if(bmi < 18.6){
+                results.style.backgroundColor = 'green' ; 
+           }
+           else if(bmi < 24.9){
+                results.style.backgroundColor = 'yellow' ;
+           }
+           else{
+                results.style.backgroundColor = 'red' ; 
+           }
+        }
+
+        
+    })
+    
+
+    
+</script>
+</html>

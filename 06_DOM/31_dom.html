@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #first{
+            font-size: 50px;
+        }
+
+        #second{
+            font-size : 60px ; 
+            color: red;
+        }
+        .first-inside{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="big-black">
+        <h1 class="heading">Heading of the DOM</h1>
+        <p id="first" class = "ft">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, aliquam!</p>
+        <p id="second" class = "first">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, aliquam!</p>
+    </div>
+
+    <!-- 
+        dom structure 
+
+        windows -> document -> html -> head , body
+
+        in head , head -> title , meta tag 
+        title -> text node 
+        meta -> attributes 
+
+        int body, body -> div 
+        div-> attributes , 
+        div -> h1 , p 
+
+
+    
+    -->
+    
+    <script>
+        document.getElementById('first').innerHTML = "Hello world"
+
+        document.getElementById('first').innerHTML = "<p class='first-inside'>hello ankit</p>"
+
+
+        document.getElementById('second').outerHTML = "<p id='second' class='first-inside'>hello outerhtml</p>"
+
+        // innerhtml select  inner text of selected id. 
+        // outerhtml select the outer full text with tag 
+    </script>
+</body>
+
+
+</html>
