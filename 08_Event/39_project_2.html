@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>weclome to async project</h1>
+    <button id="start">start</button>
+    <button id="stop">click Me</button>
+
+
+    
+</body>
+
+<script>
+
+
+    const fun = function(){
+        console.log("running , stop me")
+    }
+
+    // startrun = setInterval(fun , 2000) ; 
+
+    // const stoping = function(){
+    //     clearTimeout(changeMe) ; 
+    //     console.log("stopped")
+    // }
+
+    let startrun ; 
+
+    const running = function(){
+        startrun = setInterval(fun , 1000) ; 
+    }
+
+    const stopping = function(){
+        clearTimeout(startrun) ; 
+        console.log("stopped") ;
+    }
+
+    document.querySelector('#start').
+    addEventListener('click' , running) ; 
+
+
+    document.querySelector('#stop').
+    addEventListener('click' , stopping) ; 
+
+    
+ 
+
+    
+</script>
+</html>

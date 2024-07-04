@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>weclome to async project</h1>
+    <button id="stop">click Me</button>
+
+    
+</body>
+
+<script>
+
+    //  say hello after 2 sec ; 
+    // setTimeout(function(){
+    //     console.log("ankit raj")
+    // } , 2000) ; 
+
+
+    // method 2 
+
+    // const sayAnkit = function(){
+    //     console.log("ankit raj")
+    // }
+
+    // setTimeout(sayAnkit , 2000) ; 
+
+
+    // method 3  
+
+    // console.log("hello")
+    // const sayAnkit = function(){
+        
+    //     const say = function(){
+    //         console.log('ankit raj')
+    //     }
+        
+    //     return say ;
+    // }
+    
+    // setTimeout(sayAnkit() , 2000) ;
+    
+    // console.log("end")
+
+
+
+    // question : 
+    // change text after 3 sec ; 
+
+
+    const changeText = function(){
+        document.querySelector('h1')
+        .innerHTML = 'Best JS Notes'
+ 
+    }
+
+
+    const changeMe = setTimeout(changeText , 3000) ;
+
+
+    // document.querySelector('#stop').
+    // addEventListener('click' , function(){
+    //     clearTimeout(changeMe) ; 
+    //     console.log("Stopped")
+    // })
+
+    const stoping = function(){
+        clearTimeout(changeMe) ; 
+        console.log("stopped")
+    }
+
+    document.querySelector('#stop').
+    addEventListener('click' , stoping) ; 
+
+    
+ 
+
+    
+</script>
+</html>

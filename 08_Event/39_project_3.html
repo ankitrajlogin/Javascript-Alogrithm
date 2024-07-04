@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+
+    <div class="project">
+        <div class="key">Press the key and watch magic</div>
+        <div id="insert">
+        </div>
+    </div>
+    
+
+
+
+</body>
+
+    <script>
+        const insert = document.getElementById('insert') 
+
+
+
+        // window.addEventListener('keydown' , (e)=>{
+        //     console.log(e) ;
+        //     if(insert.innerHTML == " "){
+        //         insert.appendChild = `
+        //         <div class='color'>
+        //             <table>
+        //             <tr>
+        //             <th>Key</th>
+        //             <th>Keycode</th>
+        //             <th>Code</th>
+        //             </tr>
+        //             <tr>
+        //             <td>${e.key === " " ? "Space" : e.key}</td>
+        //             <td>${e.keyCode}</td>
+        //             <td>${e.code}</td>
+        //             </tr>
+        //             </table>
+        //             </div>
+        //             ` ; 
+        //     }
+        //     else{
+        //         insert.appendChild = `
+        //         <div class='color'>
+        //             <table>
+        //             <tr>
+        //             <td>${e.key === " " ? "Space" : e.key}</td>
+        //             <td>${e.keyCode}</td>
+        //             <td>${e.code}</td>
+        //             </tr>
+        //             </table>
+        //             </div>
+        //             ` ; 
+        //     }
+            
+        // })
+
+    //     window.addEventListener('keydown', (e) => {
+    // console.log(e);
+    // const newheader = `
+    //     <div class='color'>
+    //         <table>
+    //             <tr>
+    //                 <th>Key</th>
+    //                 <th>Keycode</th>
+    //                 <th>Code</th>
+    //             </tr>
+    //             <tr>
+    //                 <td>${e.key === " " ? "Space" : e.key}</td>
+    //                 <td>${e.keyCode}</td>
+    //                 <td>${e.code}</td>
+    //             </tr>
+    //         </table>
+    //     </div>
+    // `;
+    
+    // if (insert.innerHTML === "") {
+    //     insert.innerHTML = newContent;
+    // } else {
+    //     insert.innerHTML += newContent;
+    // }
+// });
+
+
+
+        window.addEventListener('keydown', (e) => {
+            console.log(e);
+            
+            const newRow = `
+                <tr>
+                    <td>${e.key === " " ? "Space" : e.key}</td>
+                    <td>${e.keyCode}</td>
+                    <td>${e.code}</td>
+                </tr>
+            `;
+
+            const table = insert.querySelector('table');
+            
+            if (table) {
+                table.querySelector('tbody').innerHTML += newRow;
+            } else {
+                const newTable = `
+                    <div class='color'>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Key</th>
+                                    <th>Keycode</th>
+                                    <th>Code</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${newRow}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                insert.innerHTML = newTable;
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+
+</html>

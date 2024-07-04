@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+
+    <style>
+        body{
+            background-color: aqua;
+        }
+
+        .main{
+            background-color: rgb(197, 133, 133);
+        }
+
+        li{
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        In JavaScript, events are actions or occurrences that happen in the browser, which the browser can respond to. These events can be triggered by user interactions, such as clicking a button, typing in a text box, or moving the mouse. They can also be triggered by other means, such as loading a webpage or a timer reaching a specified interval.
+    </div>
+
+    <h2>Amazing Image</h2>
+
+    <div class="main">
+        <ul id="images">
+
+            <li><img width="200px" src="a.jpg" alt="" id="photoshop"></li>
+            <li><img width="200px" src="b.jpg" alt="" id="google"></li>
+            <li><img width="200px" src="c.jpg" alt="" id="owl"></li>
+            <li><img width="200px" src="a.jpg" alt="" id="mouse"></li>
+            <li><a href="http://facebook.com" id="google">google website</a></li>
+
+        </ul>
+    </div>
+    
+    
+</body>
+
+<script>
+
+    //notes 1 ; 
+
+    // document.getElementById('owl').onclick = function(){
+    //     alert('owl clicked')
+    // }
+    // this is not prefer to use, it doesn't give enough feature. 
+
+    // document.getElementById('owl').addEventListener('click' , function(){
+    //     alert("owl clicked again")
+    // } , false)
+
+    // there is third parameter in the eventListner ; 
+    // that is for propagation , default : false ; 
+
+
+
+    // notes 2 :-> 
+
+    // document.getElementById('owl').addEventListener('click' , function(e){
+    //     console.log(e) ; 
+    // })
+    
+    // e has --> type , timestamp , defaultPrevented 
+    // target , toElement , srcElement , currentTarget , 
+    // clientX , cliendY , screenX , screenY 
+    // altkey , ctrlkey , shiftkey , keyCode ; 
+    
+    
+
+
+
+    // notes 3 :- 
+    
+    // bubbling up 
+    // document.getElementById('images').addEventListener('click' , function(e){
+    //     console.log(e) ; 
+    //     console.log("images")
+    // } , false)
+    
+    
+    // document.getElementById('owl').addEventListener('click' , function(e){
+    //     console.log(e) ; 
+    //     console.log("owl")
+    // } , false)
+    
+    // as default --> event propagation is bubbling up ; 
+    // true --> event propagation is capturing up ; 
+    
+
+    // capturing up ; 
+    // document.getElementById('images').addEventListener('click' , function(e){
+    //     console.log(e) ; 
+    //     console.log("images")
+    // } , false)
+    
+    
+    // document.getElementById('owl').addEventListener('click' , function(e){
+    //     console.log(e) ; 
+    //     console.log("owl")
+    // } , false)
+    
+    
+
+
+    
+    // notes 4 :-> 
+    
+    // we not want to bubbling up happens ; 
+    
+    // document.getElementById('images').addEventListener('click' , function(e){
+    //     console.log(e) ; 
+    //     console.log("images")
+    // } , false)
+    
+    
+    // document.getElementById('owl').addEventListener('click' , function(e){
+    //     console.log(e) ; 
+    //     console.log("owl")
+    //     e.stopPropagation() ; 
+    //     e.defaultPrevented() ; 
+    // } , false)
+
+
+
+
+
+    // notes 5 :-> 
+
+    // if we want to stop default behaviour on click ; 
+
+
+    // const val = document.getElementById('google')
+
+    // console.log(val.outerHTML) ; 
+
+    // val.addEventListener('click' , function(){
+    //     e.preventDefault(); 
+    //     e.stopPropagation() ;
+    //     console.log(e) ; 
+        
+    // })
+
+
+
+    // note 6 :-
+
+    // document.querySelector('#images').addEventListener('click' , function(e){
+    //     console.log(e.target.parentNode) ;
+    //     let removeIt = e.target.parentNode ; 
+    //     // removeIt.remove() ;
+        
+    //     removeIt.parentNode.removeChild(removeIt) ; 
+    // })
+
+    // it will also remove all li in once ; 
+
+    document.querySelector('#images').addEventListener('click' , function(e){
+        console.log(e.target.tagName) ; 
+
+        if(e.target.tagName === 'IMG'){
+            let removeIt = e.target.parentNode ;
+            removeIt.remove() ;
+        }
+    })
+    
+
+
+
+
+
+    // note 7 :-
+
+    
+
+    
+
+
+
+
+
+    
+
+
+</script>
+</html>
