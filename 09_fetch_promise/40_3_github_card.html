@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    github Profile details : 
+
+    <input type="text" id="input">
+    <button id="submit">submit</button>
+    <div id="img"></div>
+    <div id="bio"></div>
+    <div id="follower"></div>
+    <div id="name"></div>
+
+    
+</body>
+
+<script>
+
+    let username  ; 
+
+    
+
+    let data ; 
+
+    let img = document.getElementById('img')
+    let bio = document.getElementById('bio')
+    let follower = document.getElementById('follower')
+    let name = document.getElementById('name')
+
+
+
+    document.getElementById('submit').addEventListener('click' , function(){
+        username = document.getElementById('input').value ; 
+        console.log(username) ;
+
+        const requestUrl = `https://api.github.com/users/${username}`; 
+
+        if(username){
+            const xhr = new XMLHttpRequest()
+            xhr.open('GET' , requestUrl) ;
+
+            xhr.onreadystatechange = function(){
+            console.log(xhr.readyState) ; 
+                if(xhr.readyState == 4){
+                    console.log(this.response) ; 
+                     data = JSON.parse(this.responseText) ; 
+
+
+                    if(data){
+                        img.innerHTML = `<img src="${data.avatar_url}" alt="" srcset="" width = '200px'>`
+                        bio.innerHTML = `${data.bio}`
+                        follower.innerHTML = `${data.followers}` ;
+                        name.innerHTML = `${data.name}`
+                    } 
+                }
+             }
+
+            xhr.send() ;
+        }
+
+          
+
+
+    })
+
+    
+
+    
+
+
+</script>
+</html>

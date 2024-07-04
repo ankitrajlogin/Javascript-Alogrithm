@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <h1>Welcome to promise</h1>
+    
+</body>
+
+<script>
+    console.log("welcom in learning ")
+    // part 1 
+    // promise with then 
+
+    const PromiseOne = new Promise(function(resolve , reject){
+        // Do an async task 
+        // DB calls , cryptography , network ; 
+
+        setTimeout(function(){
+            console.log('Async task1 is complete') ;
+            // resolve method used to call function 
+            // then so that promise conumsed can occur ;
+            resolve() ; 
+        } , 1000) 
+
+        
+    });
+    
+    PromiseOne.then(function(){
+        console.log("Promise1 consumed")
+    })
+
+
+
+
+    // part2 ; 
+    //  promise with error ; 
+    new Promise(function(resolve , reject){
+        setTimeout(function(){
+            console.log('Async2 task is complete'); 
+
+            resolve() ; 
+        } , 1000)
+    }).then(function(){
+        console.log("promise2 consumed") ; 
+    })
+    
+
+
+
+    // part3 ; 
+    // passing data ; 
+
+    const promiseThree = new Promise(function(resolve , reject){
+        setTimeout(function(){
+            console.log('async1 task is complete') ; 
+
+            resolve({username : "chai" , email : "chai@mgial.com"})
+
+        } , 1000)
+    })
+
+    promiseThree.then(function(user){
+        console.log(user) ; 
+        console.log("promise3 consumed")
+    })
+
+    
+
+
+    //  part4 
+    // passing error also ; 
+
+    const promiseFour = new Promise(function(resolve ,reject){
+        setTimeout(function(){
+            let error = true ; 
+
+            if(!error){
+                resolve({username:"ankit" , password : "123"})
+            }
+            else{
+                reject("Error : something went wrong")
+            }
+        } , 1000)
+    })
+
+    promiseFour.then((user) =>{
+        console.log(user) ; 
+        return user.username ; 
+    }).then((myusername) => {
+        console.log(myusername) ; 
+    }).catch(function(error){
+        console.log(error) ; 
+    }).finally(()=>{
+        console.log("This promise 4 is either resolve or rejected") ; 
+    })
+
+
+    
+
+   // part 5 ;
+   // asynch and await ; 
+   // handling reponse with asynch; 
+
+   
+//    const promiseFive = new Promise(function(resolve ,reject){
+//         setTimeout(function(){
+//             let error = true ; 
+
+//             if(!error){
+//                 resolve({username:"ankit" , password : "123"})
+//             }
+//             else{
+//                 reject("Error : something went wrong")
+//             }
+//         } , 1000)
+//     })
+
+//     async function consumePromiseFive(){
+//         const response = await promiseFive 
+//         console.log(response) ; 
+//     }
+//     // calling it 
+//     consumePromiseFive() ;
+    // problem with this , i taking reponse from promise ; 
+    // what happen , if it thow error ; 
+
+    // so we have to handle it also ; 
+
+
+    // part 6 ; 
+    // handling reject with try and catch ; 
+
+
+    // const promisesix = new Promise(function(resolve ,reject){
+    //     setTimeout(function(){
+    //         let error = true ; 
+
+    //         if(!error){
+    //             resolve({username:"ankit" , password : "123"})
+    //         }
+    //         else{
+    //             reject("Error : something went wrong")
+    //         }
+    //     } , 1000)
+    // })
+
+    // async function consumePromisesix(){
+    //     try{
+    //         const response = await promisesix
+    //         console.log(response) ; 
+    //     }catch(error){
+    //         console.log(error) ; 
+    //     }
+    // }
+
+
+
+    // part 7 : 
+
+
+    // async function getAllUser(){
+    //     console.log("s")
+    //     const response = await fetch('https://catfact.ninja/fact') ; 
+
+    //     const data = reponse.json() ; 
+    //     console.log(data) ; 
+    // }
+
+    // getAllUser() ; 
+
+    // it will not show all data because fetch take time 
+    // but also , json file conversion also take time. 
+    // so , we have to handle it wil await ; 
+
+
+    // part 8 ; 
+
+    async function getAllUser2(){
+        try{
+            const response = await fetch('https://catfact.ninja/fact') ; 
+            const data = await response.json() ; 
+            console.log(data) ; 
+        }
+        catch(error){
+            console.log("Error 8 " , error) ; 
+        }
+
+    }
+
+    getAllUser2()
+
+
+
+
+    // part 9 : 
+
+
+    fetch('https://catfact.ninja/fact')
+    .then((response) =>{
+        return response.json() ; 
+    })
+    .then((data) => {
+        console.log(data) ; 
+    })
+    .catch((error) =>{
+        console.log(error) ; 
+    })
+
+
+    // finall part 9 alter ; 
+    
+
+    fetch('https://catfact.ninja/fact')
+    .then(function handleResponse(response) {
+        return response.json(); 
+    })
+    .then(function handleData(data) {
+        console.log(data); 
+    })
+    .catch(function handleError(error) {
+        console.log(error); 
+    });
+
+
+
+
+
+
+
+    console.log("ending learning")
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>GitHub User Profile</h1>
+    <input type="text" id="username" placeholder="Enter GitHub username">
+    <button onclick="fetchUserProfile()">Get Profile</button>
+
+    <div id="profile" class="profile"></div>
+
+</body>
+
+
+
+
+<script>
+    async function fetchUserProfile() {
+        const username = document.getElementById('username').value;
+
+        if (!username) {
+            alert('Please enter a GitHub username');
+            return;
+        }
+
+        const url = `https://api.github.com/users/${username}`;
+        try {
+            const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('User not found');
+        }
+        const data = await response.json();
+        displayUserProfile(data);
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    function displayUserProfile(data) {
+        const profileDiv = document.getElementById('profile');
+        profileDiv.innerHTML = `
+            <img src="${data.avatar_url}" alt="${data.login}" width="100">
+            <div>
+                <h2>${data.name || data.login}</h2>
+                <p>${data.bio || ''}</p>
+                <p><a href="${data.html_url}" target="_blank">View Profile on GitHub</a></p>
+            </div>`;
+    }
+
+    </script>
+    
+
+</html>

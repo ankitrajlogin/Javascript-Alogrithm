@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Concepts and Usage</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+strong {
+    color: #000;
+}
+
+code {
+    background: #e8e8e8;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Concepts and Usage</h1>
+        <p>The Fetch API uses <strong>Request</strong> and <strong>Response</strong> objects (and other things involved with network requests), as well as related concepts such as <strong>CORS</strong> and the <strong>HTTP Origin</strong> header semantics.</p>
+
+        <h2>Making a Request</h2>
+        <p>For making a request and fetching a resource, use the <code>fetch()</code> method. It is a global method in both <strong>Window</strong> and <strong>Worker</strong> contexts. This makes it available in pretty much any context you might want to fetch resources in.</p>
+
+        <h2>Arguments</h2>
+        <p>The <code>fetch()</code> method takes one mandatory argument, the path to the resource you want to fetch. It returns a <strong>Promise</strong> that resolves to the <strong>Response</strong> to that request — as soon as the server responds with headers — even if the server response is an HTTP error status. You can also optionally pass in an init options object as the second argument (see <strong>Request</strong>).</p>
+
+        <h2>Response Handling</h2>
+        <p>Once a <strong>Response</strong> is retrieved, there are a number of methods available to define what the body content is and how it should be handled.</p>
+
+        <h2>Creating Request and Response</h2>
+        <p>You can create a request and response directly using the <code>Request()</code> and <code>Response()</code> constructors, but it's uncommon to do this directly. Instead, these are more likely to be created as results of other API actions (for example, <code>FetchEvent.respondWith()</code> from service workers).</p>
+    
+        
+        <h2>status Code</h2>
+        <ul>
+            <li>Informational responses (100 – 199) </li>
+            <li> Successful responses (200 – 299) </li>
+            <li>   Redirection messages (300 – 399) </li> 
+            <li>    Client error responses (400 – 499) </li>
+            <li>    Server error responses (500 – 599)</li>
+        </ul>
+    </div>
+</body>
+</html>

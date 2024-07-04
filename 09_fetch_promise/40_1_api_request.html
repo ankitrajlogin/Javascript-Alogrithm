@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .content-wrapper {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.6;
+    }
+    .content-wrapper h2 {
+        color: #0056b3;
+    }
+    .content-wrapper code {
+        background-color: #eaeaea;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-size: 1.1em;
+    }
+</style>
+<body>
+
+    <div class="content-wrapper">
+        <h2>XMLHttpRequest</h2>
+        <p>An <code>XMLHttpRequest</code> object is used to communicate with the server asynchronously, which means we can exchange data to or from the server in the background without refreshing the whole page. <code>XMLHttpRequest</code> is the most commonly used technique that's why it is used by most of the mainstream browsers like Google Chrome, Safari, Mozilla Firefox, or Opera. It also supports plain text, JSON data, and many more data formats. It is very easy to use and provides various methods and properties to perform operations. We can create an <code>XMLHttpRequest</code> object using <code>XMLHttpRequest()</code> constructor.</p>
+
+        <p><strong>Syntax</strong><br>
+        <code>variableName = new XMLHttpRequest()</code><br>
+        Where using a new keyword along with the <code>XMLHttpRequest()</code> constructor we are able to create a new <code>XMLHttpRequest</code> object. This object must be created before calling the <code>open()</code> function to initialize it before calling <code>send()</code> function to send the request to the web server.</p>
+
+        <h2>Fetch API</h2>
+        <p>Fetch API provides an interface that is used to fetch/retrieve resources from the server. It is a modern alternative to <code>XMLHttpRequest</code>. It supports the generic definition of Request, and Response due to which we can access them in the future if required for Cache API, Service work, handling or modifying requests and responses, etc. It is very easy, simple and consistent. Or we can say that it provides a modern and flexible approach for creating HTTP requests and handling responses as compared to <code>XMLHttpRequest</code>. It is based on the Promise API which provides clear syntax and better error handling.</p>
+
+        <p><strong>Syntax</strong><br>
+        <code>fetch(res)</code><br>
+        Where <code>fetch()</code> takes one mandatory parameter which is <code>res</code>. The <code>res</code> parameter defines the resource that you want to fetch, it can be either a string or any other object or can be a request object. Apart from mandatory parameters, it can also take one optional parameter that can be either method, headers, body, mode cache, same-origin, etc.</p>
+    </div>
+    
+</body>
+
+<script>
+    const xhr = new XMLHttpRequest();
+console.log("UNSENT: ", xhr.status);
+
+xhr.open("GET", "/server");
+console.log("OPENED: ", xhr.status);
+
+xhr.onprogress = () => {
+  console.log("LOADING: ", xhr.status);
+};
+
+xhr.onload = () => {
+  console.log("DONE: ", xhr.status);
+};
+
+xhr.send();
+
+/**
+ * Outputs the following:
+ *
+ * UNSENT: 0
+ * OPENED: 0
+ * LOADING: 200
+ * DONE: 200
+ */
+
+</script>
+</html>

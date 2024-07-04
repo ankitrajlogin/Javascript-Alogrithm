@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch, Async, and Await in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        pre {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fetch, Async, and Await in JavaScript</h1>
+        <h2>Fetch</h2>
+        <p><code>fetch</code> is a function in JavaScript used to make network requests. It returns a promise that resolves to the response of the request.</p>
+        <pre><code>fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</code></pre>
+        
+        <h2>Async</h2>
+        <p><code>async</code> is a keyword used to declare an asynchronous function. When an <code>async</code> function is called, it returns a promise. Inside an <code>async</code> function, you can use the <code>await</code> keyword to pause execution until a promise is resolved.</p>
+        <pre><code>async function fetchData() {
+  try {
+    let response = await fetch('https://api.example.com/data');
+    let data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+fetchData();</code></pre>
+        
+        <h2>Await</h2>
+        <p><code>await</code> is used to pause the execution of an <code>async</code> function until a promise is resolved. It can only be used inside an <code>async</code> function.</p>
+        <pre><code>async function fetchData() {
+  let response = await fetch('https://api.example.com/data');
+  let data = await response.json();
+  return data;
+}
+
+fetchData().then(data => console.log(data));</code></pre>
+        
+        <h2>Key Differences</h2>
+        <ul>
+            <li><strong>Fetch:</strong> Used to make network requests. Returns a promise.</li>
+            <li><strong>Async:</strong> Used to declare an asynchronous function. The function returns a promise. Allows the use of <code>await</code> within it.</li>
+            <li><strong>Await:</strong> Used to wait for a promise to resolve. Can only be used inside an <code>async</code> function.</li>
+        </ul>
+        
+        <h2>Example Comparison</h2>
+        <h3>Using <code>fetch</code> with Promises:</h3>
+        <pre><code>fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</code></pre>
+        
+        <h3>Using <code>fetch</code> with <code>async</code> and <code>await</code>:</h3>
+        <pre><code>async function fetchData() {
+  try {
+    let response = await fetch('https://api.example.com/data');
+    let data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+fetchData();</code></pre>
+        
+        <p>In the second example, the code is cleaner and more readable because it uses <code>async</code> and <code>await</code> to handle the asynchronous operations.</p>
+    </div>
+</body>
+</html>
